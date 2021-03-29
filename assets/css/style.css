@@ -1,0 +1,16 @@
+.navtitle{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    
+}
+.navtitle{
+    position: relative;
+    left: 50%;
+}
+.brand-img{
+    width: 30%;
+}
+#search-img{
+    width: 10%;
+}
