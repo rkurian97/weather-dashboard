@@ -20,7 +20,7 @@ if(localStorage){
     }
 }
 
-//event listener for onlick
+//event listener for search button
 searchButton.addEventListener("click", function(){
     let cityName=searchContent.value;
     console.log(searchContent.value);
@@ -36,6 +36,7 @@ searchButton.addEventListener("click", function(){
     counter++;
     let searchRow=document.createElement("div");
     searchRow.setAttribute("class", "card row mt-2");
+    //adding onlick that will generate forecast when you click on previous search query;
     searchRow.setAttribute("onclick", "findCurrentWeather("+JSON.stringify(cityName)+")");
     searchRow.innerHTML=cityName;
     searchBox.append(searchRow);
@@ -97,14 +98,20 @@ let makeCurrentWeatherCard= function(data){
     .then(response => response.json())
     .then(function(data){
 
-        //populating current day with UV index since this info was in second api call
+        //populating current day with UV index since this info was in second api call it changes color depending on the value
         let uv= data.current.uvi;
-        let uvElement1= document.createElement("span");
-        uvElement1.innerHTML="UV index: ";
-        currentWeatherContainer.append(uvElement1);
-        let uvElement2= document.createElement("span");
-        uvElement2.innerHTML=uv;
-        currentWeatherContainer.append(uvElement2);
+        let uvElement= document.createElement("p");
+        uvElement.innerHTML="UV index: "+ uv;
+        if (uv<3){
+            uvElement.setAttribute("class", "bg-success text-white ")
+        }
+        else if(uv>10){
+            uvElement.setAttribute("class", "bg-danger text-white")
+        }
+        else{
+            uvElement.setAttribute("class", "bg-info text-white")
+        }
+        currentWeatherContainer.append(uvElement);
 
         forecastHeader= document.createElement("h2");
         forecastHeader.setAttribute("class", "mt-3");
