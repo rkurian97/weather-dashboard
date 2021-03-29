@@ -10,7 +10,7 @@ A Weather Dashboard where you can search the weather in a city for the current d
 * Open Weather App Api
 
 ## Website
-https://rkurian97.github.io/workday-scheduler/
+https://rkurian97.github.io/weather-dashboard/
 
 ##
 ![alt text](./assets/images/readmeIMG.png)
